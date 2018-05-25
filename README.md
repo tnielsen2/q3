@@ -25,28 +25,26 @@ Build the container image and tag it by the name "quake3"
 docker build . -t quake3
 ```
 
+Because I am unable to get Docker to run the Server with the proper arguments (although it SHOULD work), I recommend running the container in interactive mode with Tmux, starting a map, and then detaching from the session.
+
 Run the container:
 
 ```
-docker run --name quake3 -d -p 0.0.0.0:27960:27960/udp quake3
+tmux
+docker run --name quake3 -it -p 0.0.0.0:27960:27960/udp quake3
 ```
+
+After you start the server (next step) detatch from the terminal by means of CTRL+b then d.
 
 
 # Start the Server
 
-Running the container will not start the server, so this will be achieved through 'rcon'. I use the ioquake3 client to do this. Open the console by pressing the tilde key, and set the IP address and password of the server where the container is running to remotely control it:
-
-```
-\seta rconaddress 192.168.1.100
-\rcon "password" status
-\rcon status
-```
-
-
-Then, start the server with a map of your choosing:
+While in an interactive terminal with the container, start the server with a map of your choosing:
 
 ```
 map q3dm1
 ```
 
-To see all the maps on the server, type "map" followed by a space and a tab to see all maps on the server. 
+To see all the maps on the server, type "map" followed by a space and a tab to see all maps on the server.
+
+If launched with tmux, then detach (CTRL+b then d)
