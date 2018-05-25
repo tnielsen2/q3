@@ -22,3 +22,4 @@ COPY q3config_server.cfg /home/ioq3srv/ioquake3/baseq3
 USER ioq3srv
 EXPOSE 27960/udp
 ENTRYPOINT ["/home/ioq3srv/ioquake3/ioq3ded.x86_64"]
+CMD ["+exec q3config_server.cfg +map q3dm1"]
