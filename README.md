@@ -48,3 +48,22 @@ map q3dm1
 To see all the maps on the server, type "map" followed by a space and a tab to see all maps on the server.
 
 If launched with tmux, then detach (CTRL+b then d)
+
+
+# Remotely Administer the Server
+in the console:
+
+To change the map:
+```
+\rcon "quakelan" map q3dm3
+```
+
+To kick someone:
+```
+\rcon "quakelan" kick <name>
+```
+
+To add a bot:
+```
+\rcon addbot "<bot name>" "skill level [1-5]"
+```
